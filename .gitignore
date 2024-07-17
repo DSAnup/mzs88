@@ -1,0 +1,14 @@
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Folder restriction
+www/assets/uploads/
+www/assets/alumni_pictures/
+www/application.cfc

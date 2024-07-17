@@ -1,0 +1,1054 @@
+/*
+Theme Name: iDea - Clean & Powerful Bootstrap Theme
+Author: HtmlCoder
+Author URI: http://www.htmlcoder.me
+Author e-mail: htmlcoder.me@gmail.com
+Version: 1.2.1
+Created: August 2014
+License URI: http://support.wrapbootstrap.com/
+File Description: Place here your custom CSS styles
+*/
+.logo {
+    margin-top: 15px;
+}
+span#errmsg, span#quntityerror {
+    font-size: 11px;
+    color: #e84c3d;
+    font-style: italic;
+    margin-top: 3px;
+}
+div#priceInstruction {
+    color: #e84c3d;
+}
+.lead-data {
+    text-align: center;
+    padding: 15px 0;
+    border: 1px solid #ddd;
+}
+.lead-data .overlay-container {
+    display: inline-block;
+}
+.privacy-inner-content {
+    padding: 30px 0;
+}
+.privacy-inner-content h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.privacy-inner-content p {
+    line-height: 1.7
+}
+.qoute-text-block {
+    margin-left: 25px;
+    line-height: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.terms-and-service{
+    height: 280px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 10px;
+ -moz-box-shadow:    inset 0 0 3px #ddd;
+   -webkit-box-shadow: inset 0 0 3px #ddd;
+   box-shadow:         inset 0 0 3px #ddd;    
+}
+.terms-and-service h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    padding-top: 0;
+    margin-top: 0;
+}
+.terms-and-service h2 {
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.terms-and-service p {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.about-para h3 {
+    margin-top: 30px;
+}
+.about-para-first {
+    padding-top: 45px;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.home-page-banner {
+    background: url(../../../assets/alumni_pictures/Mymensingh_Zilla_School_banner.jpg);
+    min-height: 600px;
+    position: relative;
+    background-position: 50% 75%;
+}
+.home-banner-overlay {
+    background: rgba(32,26,22,.7);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.header {
+    padding: 10px 0;
+}
+.banner-inner-content {
+    text-align: center;
+    margin-top: 110px;
+}
+.banner-inner-content h1 {
+    color: #fff;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.banner-inner-content p {
+    color: #9c9999;
+    font-size: 25px;
+    letter-spacing: 4px;
+    margin: 40px 0;
+}
+a.order-button {
+    font-size: 16px;
+    color: #9c9999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #9c9999;
+    padding: 10px 20px;
+    display: inline-block;
+}
+a.order-button:hover{
+    background: #9c9999;
+    color: #181818;
+    text-decoration: none;
+}
+.padding-100 {
+    padding: 100px 0;
+}
+.call-center-inner h2 {
+    color: #1c1c1c;
+    font-size: 40px;
+    font-weight: 300;
+}
+.call-center-thumb {
+    display: inline-block;
+    padding: 30px 0;
+}
+.call-center-inner.text-center h1 {
+    font-weight: 400;
+    font-size: 55px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.call-center-inner.text-center p {
+
+}
+.helpus-banner {
+    background: url(../../../assets/alumni_pictures/Mymensingh_Zilla_School_5.jpg);
+    min-height: 450px;
+    position: relative;
+    background-position: center;   
+}
+.helpus-inner-content {
+    margin-top: 165px;
+    text-align: center;
+}
+.helpus-inner-content h2 {
+    color: #fff;
+    font-size: 70px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+.key-success-inner h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.key-success-inner h1 {
+    font-weight: 400;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.select2-container.specificbanks {
+    display: none;
+}
+li.twitter.new-headericon a {
+    font-size: 12px;
+    width: 100%;
+    padding: 0px 10px;
+}
+li.twitter.new-headericon a:hover {
+    color: #FFFFFF!important;
+    background-color: #36373C !important;
+    border-right-color: #3d3d3d !important;
+    text-decoration: none;
+}
+.list-icons li i {
+    width: 25px;
+    text-align: center;
+    height: 25px;
+    float: left;
+    margin-top: 5px;
+}
+.loantype {
+    color: cornflowerblue;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.loantype {
+    color: #fff;
+    font-style: italic;
+    margin-bottom: 10px;
+    background: #666;
+    padding: 6px 10px;
+	font-weight: 600;
+}
+div#pricemin, div#quntityerror{
+    padding-left: 50px;
+    float: left;
+	width: 100%;
+}
+div#pricemin:before, div#quntityerror:before {
+	display: none;
+}
+#s2id_specificBank2 {
+    margin-top: 15px;
+}
+h3.selectLabel {
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+}
+.btn.btn-lg.pp-button {
+    padding: 0;
+    font-size: 15px;
+    min-width: 210px;
+    text-transform: capitalize;
+    background: none;
+    border: none;
+    color: #5bc0de;
+}
+.btn.btn-lg.pp-button :focus, .btn.btn-lg.pp-button :active:focus {
+    outline: none;
+}
+input#termsconfirm {
+    float: left;
+    margin-right: 10px;
+}
+.checktermshover {
+	color: #FF0000;
+	font-weight: 600;
+}
+.disabled {
+    display: block;
+    float: right;
+}
+.sidebar.sidebarAfterHelpButton {
+    margin-top: 90px;
+}
+
+ul.list-icons.help-icons li i {
+    font-size: 25px;
+    width: 35px;
+    height: 35px;
+    float: none;
+    display: block;
+}
+ul.list-icons.help-icons li {
+    font-size: 16px;
+}
+a.helpButton {
+    display: inline-block;
+    float: right;
+}
+a.helpButton img {
+    width: 225px;
+}
+
+.loginarea .form-group {
+    overflow: hidden;
+}
+.loginarea .control-label {
+    font-weight: normal;
+    padding: 0;
+}
+h1.loginheading {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 35px;
+    overflow: hidden;
+}
+.loginSignup {
+
+    margin-top: 40px;
+}
+.col-md-6.loginformborder {
+    border-right: 1px solid #ccc;
+    min-height: 416px;
+}
+
+.registerarea {
+    padding-left: 15px;
+}
+input.btn.btn-success.btnreset {
+    margin: 0;
+}
+#forgetpass {
+    display: none;
+    text-align: center;	
+}
+#forgetpass fieldset {
+    padding-top: 75px;
+}
+button#forgetpassbtn {
+    background: none;
+    border: none;
+}
+#loginSignup fieldset {
+    min-height: 402px;
+}
+#forgetpass form {
+    margin-top: 40px;
+    overflow: hidden;
+}
+div#forgetpass legend {
+    text-align: left;
+}
+#forgetpass h1.loginheading {
+	text-align: left;
+}
+div#successmessage {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 35px;
+    margin-top: 40px;
+}
+div#whating {
+    border: 1px solid #eee;
+    min-height: 100px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.alertHidden { 
+	display: none;
+    width: 100%;
+}
+.side-pop.list {
+    margin-top: 15px;
+    margin-bottom: 10px;
+	overflow: hidden;
+}
+.side-pop-img {
+    margin-bottom: 12px;
+    position: relative;
+}
+.side-pop.list .side-pop-img {
+    float: left;
+    max-width: 65px;
+    margin-right: 15px;
+    margin-bottom: 0;
+	margin-top: 24px;
+}
+.side-pop.list .side-pop-content {
+    text-align: left;
+    overflow: hidden;
+	font-size: 15px;
+	margin-top: 17px;
+}
+
+.side-pop-content h4 {
+    margin-bottom: 7px;
+	font-weight: normal;
+}
+.side-pop-content span.sp-date {
+    color: #999;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+}
+button.btn a {
+    color: #999;
+}
+button.btn a:hover {
+    text-decoration: none;
+	color: #fff;
+}
+div#errorDivReset {
+    margin-top: 0;
+}
+.row.passUpdate {
+    min-height: 150px;
+    padding-top: 45px;
+}
+label.col-lg-12.control-label-updatepass {
+    font-weight: normal;
+    margin-bottom: 7px;
+	
+}
+.row.passUpdate input::-webkit-input-placeholder{
+	font-style: italic;
+    color: #ccc;
+}
+
+/* Global CSS, you probably don't need that */
+
+
+/* Breadcrups CSS */
+.arrow-steps {
+    margin-bottom: 30px;
+}
+
+.arrow-steps .step.current-last:after {
+    display: none;
+}
+.arrow-steps .step {
+	font-size: 14px;
+	text-align: center;
+	color: #666;
+	cursor: default;
+	margin: 0 3px;
+	padding: 11px 10px 10px 30px;
+	min-width: 222px;
+	float: left;
+	position: relative;
+	background-color: #f1f1f1;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+  transition: background-color 0.2s ease;
+}
+
+.arrow-steps .step:after, .arrow-steps .step:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: -17px;
+    width: 0;
+    height: 0;
+    border-top: 21px solid transparent;
+    border-bottom: 21px solid transparent;
+    border-left: 17px solid #f1f1f1;
+    z-index: 2;
+    transition: border-color 0.2s ease;
+}
+
+.arrow-steps .step:before {
+	right: auto;
+	left: 0;
+	border-left: 17px solid #fff;	
+	z-index: 0;
+}
+
+.arrow-steps .step:first-child:before {
+	border: none;
+}
+
+.arrow-steps .step:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.arrow-steps .step span {
+	position: relative;
+}
+
+.arrow-steps .step span:before {
+	opacity: 0;
+	content: "\f00c";
+	position: absolute;
+	top: -2px;
+	left: -20px;
+	font-family: 'FontAwesome';
+}
+
+.arrow-steps .step.done span:before {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s ease 0.5s;
+	-moz-transition: opacity 0.3s ease 0.5s;
+	-ms-transition: opacity 0.3s ease 0.5s;
+	transition: opacity 0.3s ease 0.5s;
+}
+
+.arrow-steps .step.current {
+	color: #fff;
+	background-color: #23468c;
+}
+
+.arrow-steps .step.current:after {
+	border-left: 17px solid #23468c;	
+}
+.arrow-steps .step.done:after {
+	border-left: 17px solid #599f06;	
+}
+.step.done {
+    background: #599f06;
+    color: #fff;
+}
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success, .btn-success {
+    background-color: #599f06 !important;
+    border-color: #599f06 !important;
+}
+.signupbackup {
+    padding: 8px 0;
+}
+.paymentMethords fieldset {
+    padding: 10px 25px;
+    margin: 15px 0px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+    min-height: 302px;
+    padding-top: 12px;
+}
+.cart.table .amount {
+    text-align: right;
+    width: 15%;
+}
+.total-balance {
+    width: 150px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 3px;
+}
+.cart.table .amount {
+    text-align: right;
+    width: 15%;
+    font-weight: normal;
+	line-height: 28px;
+}
+.gstincluded {
+    font-size: 12px;
+    font-weight: normal;
+    width: 120px;
+    text-align: right;
+}
+
+/*Support css*/
+
+
+form#openticket input[type="text"], form#openticket input[type="email"], form#openticket select, form#openticket textarea {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    width: 100%;
+}
+form#openticket input[type="file"] {
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+form#openticket .col-md-12 {
+    padding: 0;
+}
+form#openticket textarea:focus-visible {
+    outline: none;
+}
+form#openticket textarea {
+    height: 250px;
+}
+.openticketarea {
+    color: #000;
+}
+.viewsupportbox {
+    text-align: center;
+}
+.viewsupportbox h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #666;
+}
+.viewsupportbox span {
+    background: #fff;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 1px solid #eee;
+    margin-top: 7px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+}
+h2.tickviewtitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
+}
+.viewboxarea {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 20px 0;
+}
+.ticketDetails {
+    border: 1px solid #eee;
+}
+.tickethead {
+    background: #666;
+}
+.tickethead.stuffhead {
+    background: darkorange;
+}
+.tickethead h2 {
+    padding: 8px 10px;
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+}
+.tickethead span {
+    color: #fff;
+    text-align: right;
+    display: block;
+    padding: 9px 10px 0 0;
+    font-size: 13px;
+}
+.ticketMessage {
+    padding: 20px 10px;
+    font-size: 14px;
+}
+.replyform {
+    margin-top: 10px;
+}
+a.btn.btn-goback {
+    border: 1px solid #eee;
+    background: #eeee;
+    color: #666;
+    border: 1px solid #cccc;
+}
+.replyform .btn {
+    width: 108px;
+    min-width: auto !important;
+    padding: 7px 0;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.replybox textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+.special-offer {
+    position: absolute;
+    width: 85px;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+.discount-amount {
+    position: absolute;
+    right: 5%;
+    bottom: 20%;
+}
+.discount-amount h5 {
+    color: #fff;
+    background: #ef5350;
+    font-weight: normal;
+    padding: 5px 15px;
+    border-radius: 18px;
+	font-style: italic;
+}
+.discount-amount-productpage {
+    position: absolute;
+    top: -35px;
+    right: 0;
+    background: url(../../uploads/specia-offer-off.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 235px;
+    height: 95px;
+}
+span.Percentoff {
+    display: block;
+}
+.discount-amount-productpage h5 {
+    color: #fff;
+    margin-top: 27px;
+    margin-left: 37px;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.alert.alert-info.specialofferdes:before, .alert.alert-info.specialofferdes:after {
+    position: inherit;
+    width: inherit;
+    height: 0;
+    content: '';
+    left: 0;
+}
+.alert.alert-info.specialofferdes {
+    text-align: left;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+
+/*
+CSS for FAQ*/
+.question-block ul#nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.question-block ul#nav li {
+    margin-bottom: 10px;
+}
+.answer-block {
+    padding-top: 45px;
+}
+.single-faq h2 {
+    font-size: 20px;
+}
+
+/*CHAT BOX CSS*/
+
+.gsc-chat-main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #FFFFFF;
+}
+
+.gsc-chat-main * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.gsc-chat-main .gsc-chat-container {
+  max-width: 920px;
+  width: 100%;
+  margin: 10px 10px;
+  padding: 0;
+  border: 1px solid #ccc;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper {
+  background: #599F06;
+  padding: 0px 0px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header h3 {
+  font-size: 18px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header img {
+  height: 24px;
+  width: 24px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header span p {
+  text-align: right;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header span h4 {
+  text-align: right;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll {
+  background: #F1F1F1;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  min-height: 360px;
+  max-height: 500px;
+  padding: 0 25px;
+  width: 100%;
+  margin: 0;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-date-time {
+  text-align: center;
+  margin: 5px 5px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person img {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  border: 3px solid #EDE4FFEE;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person p {
+  padding: 10px 20px;
+  background: #e6dbff;
+  border-radius: 15px;
+  width: 75%;
+  margin-left: 10px;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person p img {
+  max-height: 120px;
+  max-width: 120px;
+  border: 0;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person1 {
+  margin: 0;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person1 img {
+  margin-right: 0px;
+  margin-left: 25px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person2 {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chatted-contents .gsc-chat-person2 p {
+  background: #D7EEFE;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-msgarea {
+  margin: 10px 20px;
+  position: relative;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-msgarea #writeMsg {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  background: #f1f1f1;
+  font-size: 16px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-msgarea label {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  cursor: pointer;
+  padding: 10px 10px;
+  height: 15px;
+  width: 15px;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-msgarea #writeMsgAttachment {
+  text-indent: -1000%;
+}
+
+.gsc-chat-main .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-msgarea button {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dark-mode {
+  background: #111;
+}
+
+.dark-mode .gsc-chat-container {
+  border: 1px solid #ccc;
+}
+
+.dark-mode .gsc-chat-container .gsc-chat-wrapper {
+  background: #111;
+}
+
+.dark-mode .gsc-chat-container .gsc-chat-wrapper .gsc-chat-header {
+  color: #fff;
+}
+
+.dark-mode .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll {
+  background: #222;
+}
+
+.dark-mode .gsc-chat-container .gsc-chat-wrapper .gsc-chat-body-area-scroll-wrapper .gsc-chat-body-scroll .gsc-chat-date-time {
+  color: #fff;
+}
+
+table.table.table-hover.table-striped.productPage-table {
+    margin-top: 20px;
+}
+table.table.table-hover.table-striped.productPage-table th {
+    background: none;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    text-align: right;
+    font-style: italic;
+    font-size: 13px;
+}
+.car-price-head {
+    float: left;
+    font-weight: bold;
+}
+td.car-price {
+    text-align: right;
+    width: 16%;
+}
+.table-striped.table > tbody > tr > td:nth-child(3) {
+    text-align: right;
+}
+.special-offer.soldout {
+	top: -10%;
+    left: 0;
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+.special-offer.soldout img {
+    width: 145px;
+    margin: 75px auto 0 auto;
+}
+.sold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+}
+.soldoutMessage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    z-index: 2;
+    text-align: center;
+    opacity: 0.9;
+}
+.soldoutMessage h2 {
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 135px;
+}
+img#logo {
+    width: 100px;
+}
+img#logo-footer {
+    width: 150px;
+}
+.text-default {
+    color: #e84c3d;
+}
+.navbar.navbar-default {
+    margin: 35px 0 5px;
+}
+.call-center-thumb img {
+    border: 1px solid #ccc;
+}
+img.profile_photo {
+    width: 40px;
+    border-radius: 50%;
+	height: 40px;
+	border: 1px solid #ccc;		
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    opacity: 1 !important;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    background: none;
+}
+.subfooter nav.navbar.navbar-default {
+    margin-top: 0;
+}
+form#validate-1 .form-control {
+    box-shadow: none !important;
+}
+
+form#validate-1 .upload-btn-group .form-control[disabled] {
+    opacity: 0 !important;
+}
+
+#Picture {
+    opacity: 0;
+}
+
+.image-area {
+    width: 340px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    height: 160px;	
+}
+img#imageResult {
+    width: 160px;
+    float: right;
+}
+.upload-btn-group {
+    position: absolute;
+    right: 0;
+    bottom: -16px;
+}
+.btnpass {
+    margin-top: 30px;
+}
+#alumni tbody > tr > td:nth-child(3) {
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+fieldset .form-control {
+    box-shadow: none !important;
+	border: 1px solid #ccc;
+}
