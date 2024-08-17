@@ -20,7 +20,8 @@
 
 <center>
 
-<a href="batch88.pdf"><img src="book.jpg" /></a>
+<!--- <a href="batch88.pdf"><img src="book.jpg" /></a> --->
+<a href="index.cfm?area=home&action=Scholarship"><img src="assets/banner.jpg" /></a>
 
 </center>
 

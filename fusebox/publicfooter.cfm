@@ -133,7 +133,7 @@
 		<script type="text/javascript" src="assets/js/onepagenav.js"></script>
 		<script type="text/javascript" src="assets/js/datatables.min.js"></script>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+<!---     <script src='https://www.google.com/recaptcha/api.js'></script> --->
 	
 	
 	

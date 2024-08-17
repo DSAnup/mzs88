@@ -10,5 +10,6 @@
 
 # Folder restriction
 www/assets/uploads/
+assets/alumni_pictures/
 www/assets/alumni_pictures/
 www/application.cfc

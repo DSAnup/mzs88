@@ -55,7 +55,7 @@
 		<cfset request.dsnameReader = "mzs">
 		<cfset request.dsnameWriter = "mzs">
 
-		<cfset request.imagesUploadPath = "C:\sites\mzs88alumni.hope-tech.net\www\assets\alumni_pictures">
+		<cfset request.imagesUploadPath = "C:\sites\mzs88alumni.hope-tech.net\mzs88\assets\alumni_pictures">
 		
 		<cfset request.MaxAutoInvoiceAmount = 5000>
 		
