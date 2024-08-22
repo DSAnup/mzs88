@@ -212,10 +212,6 @@
 														<a href="index.cfm?area=home&action=contactus">Contact</a>														
 													</li>
 													
-													<li>
-														<a href="index.cfm?area=home&action=scholarship">Apply Scholarship</a>														
-													</li>
-													
 													<!--- if the user is logged in, take to client confirmation, else go to login --->
 													<cfparam name="session.profile.IsLoggedIn" default="false" >
 													
@@ -224,6 +220,10 @@
 														
 														<li>
 															<a href="index.cfm?area=home&action=AlumniSelect">Alumni List</a>														
+														</li>
+
+														<li>
+															<a href="index.cfm?area=home&action=ApplicantList">Applicant List</a>														
 														</li>
 														
 			

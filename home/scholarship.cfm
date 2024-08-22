@@ -1,6 +1,11 @@
 <cfoutput>
-    
-
+    <cfparam  name="url.ScholarShipID" default="0">
+	
+	<cfquery datasource="#request.dsnameReader#" name="qScholarShipSelect">	
+		SELECT *
+			FROM ScholarShip		
+		WHERE ScholarShipID = <cfqueryparam cfsqltype="cf_sql_integer" value="#val(url.ScholarShipID)#">	
+	</cfquery>
    
   <!-- main-container start -->
     <!-- ================ -->
@@ -46,13 +51,13 @@
 											<div class="form-group">
 												<label for="FullName" class="col-md-5 control-label">Full Name <small class="text-default">*</small></label>
 												<div class="col-md-7">
-													<input type="text" class="form-control required" id="FullName" name="FullName">
+													<input type="text" class="form-control required" id="FullName" name="FullName" value="#qScholarShipSelect.FullName#">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="Dob" class="col-md-5 control-label">Date of Birth <small class="text-default">*</small></label>
 												<div class="col-md-7">
-													<input type="date" class="form-control required" id="Dob" name="Dob" minlength="10">
+													<input type="date" class="form-control required" id="Dob" name="Dob" minlength="10"  value="#DateFormat(qScholarShipSelect.Dob, "yyyy-mm-dd")#">
 												</div>
 											</div>
 										</div>
@@ -62,14 +67,30 @@
 										
 										<div class="col-lg-12 center-block">
 
-											<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/man.jpg" alt=""></div>
-											
-											<div class="form-group">
-												<div class="upload-btn-group">
-													<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
-													<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
+											<cfif val(qScholarShipSelect.ScholarShipID) gt 0 >
+												<cfif qScholarShipSelect.Picture neq '' >
+													<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/Profile/#qScholarShipSelect.Picture#" alt=""></div>
+												<cfelse>
+													<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/man.jpg" alt=""></div>
+												</cfif>
 												<div class="form-group">
-											</div>
+													<div class="upload-btn-group">
+														<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
+														<input type="hidden" name="currentPicture" id="currentPicture" value="#qScholarShipSelect.Picture#">
+														<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
+													<div class="form-group">
+												</div>
+											<cfelse>
+												<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/man.jpg" alt=""></div>
+												
+												<div class="form-group">
+													<div class="upload-btn-group">
+														<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
+														<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
+													<div class="form-group">
+												</div>
+			
+											</cfif>
 										</div>
 													
 									</div>
@@ -87,8 +108,8 @@
 											<div class="col-md-7">
 												<select class="form-control required" id="Class" name="Class">
 													<option value="">Select your class</option>
-													<option value="ten">Ten</option>
-													<option value="nine">Nine</option>
+													<option value="ten" <cfif qScholarShipSelect.Class eq 'ten'>selected</cfif>>Ten</option>
+													<option value="nine" <cfif qScholarShipSelect.Class eq 'nine'>selected</cfif>>Nine</option>
 												</select>
 											</div>
 										</div>								
@@ -97,8 +118,8 @@
 											<div class="col-md-7">
 												<select class="form-control required" id="Shift" name="Shift">
 													<option value="">Select your shift</option>
-													<option value="morning">Morning</option>
-													<option value="day">Day</option>
+													<option value="morning" <cfif qScholarShipSelect.Shift eq 'morning'>selected</cfif>>Morning</option>
+													<option value="day" <cfif qScholarShipSelect.Shift eq 'day'>selected</cfif>>Day</option>
 												</select>
 											</div>
 										</div>								
@@ -111,15 +132,15 @@
 											<div class="col-md-7">
 												<select class="form-control required" id="Section" name="Section">
 													<option value="">Select your section</option>
-													<option value="A">A</option>
-													<option value="B">B</option>
+													<option value="A" <cfif qScholarShipSelect.Section eq 'A'>selected</cfif>>A</option>
+													<option value="B" <cfif qScholarShipSelect.Section eq 'B'>selected</cfif>>B</option>
 												</select>
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="HomeTeacherName" class="col-md-5 control-label">Home Teacher Name<small class="text-default">*</small></label>
 											<div class="col-md-7">
-												<input type="text" class="form-control required" id="HomeTeacherName" name="HomeTeacherName">
+												<input type="text" class="form-control required" id="HomeTeacherName" name="HomeTeacherName" value="#qScholarShipSelect.HomeTeacherName#">
 											</div>
 										</div>
 									</div>
@@ -136,13 +157,13 @@
 										<div class="form-group">
 											<label for="GuardianName" class="col-md-5 control-label">Guardian's Name <small class="text-default">*</small></label>
 											<div class="col-md-7">
-												<input type="text" class="form-control required" id="GuardianName" name="GuardianName">
+												<input type="text" class="form-control required" id="GuardianName" name="GuardianName" value="#qScholarShipSelect.GuardianName#">
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="Number" class="col-md-5 control-label">Guardian's Phone <small class="text-default">*</small></label>
 											<div class="col-md-7">
-												<input type="text" class="form-control required" id="GuardianPhoneNumber" name="GuardianPhoneNumber">
+												<input type="text" class="form-control required" id="GuardianPhoneNumber" name="GuardianPhoneNumber" value="#qScholarShipSelect.GuardianPhoneNumber#">
 											</div>
 										</div>
 									</div>
@@ -152,7 +173,7 @@
 										<div class="form-group">
 											<label for="Address" class="col-md-5 control-label">Address <small class="text-default">*</small></label>
 											<div class="col-md-7">
-												<textarea rows="5" id="Address" name="Address" class="form-control has-success required"></textarea>
+												<textarea rows="5" id="Address" name="Address" class="form-control has-success required">#qScholarShipSelect.Address#</textarea>
 											</div>
 										</div>	
 									</div>
@@ -170,53 +191,53 @@
 											<div class="col-md-7">
 												<select class="form-control required" id="meritsystemselectid" name="meritsystemselectid" onchange="meritsystemselect();result();">
 													<option value="">Choose An Merit System</option>
-													<option value="A">Merit Symbol System</option>
-													<option value="B">Merit Rank System</option>
+													<option value="A" <cfif len(qScholarShipSelect.MeritSymbol) gt 4>selected</cfif>>Merit Symbol System</option>
+													<option value="B" <cfif qScholarShipSelect.MeritRank gt '0' >selected</cfif>>Merit Rank System</option>
 												</select>
 											</div>
 										</div>
-										<div id="symbol" style="display:none;">
+										<div id="symbol" <cfif len(qScholarShipSelect.MeritSymbol) gt 4>style="display:block;"<cfelse>style="display:none;"</cfif>>
 											<small class="form-text text-muted">New system please select your symbol</small>
 												<div class="form-group">
 													<label for="MeritSymbol" class="col-md-5 control-label" style="padding-top:0px;">Merit Symbol</label>
 													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol1" value="triangle" onchange="result(); meritsystem();"> 
+														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol1" value="triangle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'triangle'>checked</cfif>> 
 														Triangle 
 													</div>
 													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol2" value="circle" onchange="result(); meritsystem();"> 
+														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol2" value="circle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'circle'>checked</cfif>> 
 														Circle
 													</div>
 													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol3" value="rectangle" onchange="result(); meritsystem();"> 
+														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol3" value="rectangle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'rectangle'>checked</cfif>> 
 														Rectangle
-														<input class="form-check-input hidden" checked type="radio" name="MeritSymbol" id="MeritSymbol4" value="none" onchange="result(); meritsystem();"> 
+														<input class="form-check-input hidden" <cfif qScholarShipSelect.MeritSymbol eq 'triangle' or qScholarShipSelect.MeritSymbol eq 'circle' or qScholarShipSelect.MeritSymbol eq 'rectangle' >unchecked <cfelse>checked</cfif> type="radio" name="MeritSymbol" id="MeritSymbol4" value="none" onchange="result(); meritsystem();"> 
 
 													</div>
 												</div>
 										</div>
 										
-										<div id="rank" style="display:none;">
+										<div id="rank" style="<cfif qScholarShipSelect.MeritRank gt '0'>display:block;<cfelse>display:none;</cfif>">
 											<div class="col-lg-12">
 												<small class="form-text text-muted">Under legacy system, please select your rank</small>
 												<div class="form-group">
 													<label for="MeritRank" class="col-md-5 control-label">Merit Rank</label>
 													<div class="col-md-7">
-														<select class="form-control" id="MeritRank" name="MeritRank2" onchange="result();meritsystem();">
+														<select class="form-control" id="MeritRank" name="MeritRank" onchange="result();meritsystem();">
 															<option value="0">Select your rank</option>
-															<option value="40">1</option>
-															<option value="39">2</option>
-															<option value="38">3</option>
-															<option value="37">4</option>
-															<option value="36">5</option>
-															<option value="35">6</option>
-															<option value="34">7</option>
-															<option value="33">8</option>
-															<option value="32">9</option>
-															<option value="31">10</option>
-															<option value="25">11 - 30</option>
-															<option value="20">31 - 50</option>
-															<option value="10">51 +</option>
+															<option value="40" <cfif qScholarShipSelect.MeritRank eq '40'>selected</cfif>>1</option>
+															<option value="39" <cfif qScholarShipSelect.MeritRank eq '39'>selected</cfif>>2</option>
+															<option value="38" <cfif qScholarShipSelect.MeritRank eq '38'>selected</cfif>>3</option>
+															<option value="37" <cfif qScholarShipSelect.MeritRank eq '37'>selected</cfif>>4</option>
+															<option value="36" <cfif qScholarShipSelect.MeritRank eq '36'>selected</cfif>>5</option>
+															<option value="35" <cfif qScholarShipSelect.MeritRank eq '35'>selected</cfif>>6</option>
+															<option value="34" <cfif qScholarShipSelect.MeritRank eq '34'>selected</cfif>>7</option>
+															<option value="33" <cfif qScholarShipSelect.MeritRank eq '33'>selected</cfif>>8</option>
+															<option value="32" <cfif qScholarShipSelect.MeritRank eq '32'>selected</cfif>>9</option>
+															<option value="31" <cfif qScholarShipSelect.MeritRank eq '31'>selected</cfif>>10</option>
+															<option value="25" <cfif qScholarShipSelect.MeritRank eq '25'>selected</cfif>>11 - 30</option>
+															<option value="20" <cfif qScholarShipSelect.MeritRank eq '20'>selected</cfif>>31 - 50</option>
+															<option value="10" <cfif qScholarShipSelect.MeritRank eq '10'>selected</cfif>>51 +</option>
 														</select>
 													</div>
 												</div>	
@@ -242,11 +263,11 @@
 											<div class="col-md-7">
 												<select class="form-control required" id="ParentIncome" name="ParentIncome" onchange="result();parentincomeresult();">
 													<option value="">Select your parent monthly income</option>
-													<option value="40">0 - 10k</option>
-													<option value="35">11k - 20k</option>
-													<option value="30">21k - 30k</option>
-													<option value="25">31k - 40k</option>
-													<option value="20">40k +</option>
+													<option value="40" <cfif qScholarShipSelect.ParentIncome eq '40'>selected</cfif>>0 - 10k</option>
+													<option value="35" <cfif qScholarShipSelect.ParentIncome eq '35'>selected</cfif>>11k - 20k</option>
+													<option value="30" <cfif qScholarShipSelect.ParentIncome eq '30'>selected</cfif>>21k - 30k</option>
+													<option value="25" <cfif qScholarShipSelect.ParentIncome eq '25'>selected</cfif>>31k - 40k</option>
+													<option value="20" <cfif qScholarShipSelect.ParentIncome eq '20'>selected</cfif>>40k +</option>
 												</select>
 											</div>
 										</div>	
@@ -269,13 +290,13 @@
 											<div class="form-group">
 												<label for="TeacherOne" class="col-md-5 control-label">Full Name Of Teacher One </label>
 												<div class="col-md-7">
-													<input type="text" class="form-control" id="TeacherOne" name="TeacherOne" onchange="result();teacherref();">
+													<input type="text" class="form-control" id="TeacherOne" name="TeacherOne" onchange="result();teacherref();" value="#qScholarShipSelect.TeacherOne#">
 												</div>
 											</div>	
 											<div class="form-group">
 												<label for="TeacherOnePhone" class="col-md-5 control-label">Phone Number Of Teacher One </label>
 												<div class="col-md-7">
-													<input type="text" class="form-control" id="TeacherOnePhone" name="TeacherOnePhone" onchange="result();teacherref();">
+													<input type="text" class="form-control" id="TeacherOnePhone" name="TeacherOnePhone" onchange="result();teacherref();" value="#qScholarShipSelect.TeacherOnePhone#">
 												</div>
 											</div>	
 										</div>
@@ -285,13 +306,13 @@
 											<div class="form-group">
 												<label for="TeacherTwo" class="col-md-5 control-label">Full Name Of Teacher Two</label>
 												<div class="col-md-7">
-													<input type="text" class="form-control" id="TeacherTwo" name="TeacherTwo" onchange="result();teacherref();">
+													<input type="text" class="form-control" id="TeacherTwo" name="TeacherTwo" onchange="result();teacherref();" value="#qScholarShipSelect.TeacherTwo#">
 												</div>
 											</div>	
 											<div class="form-group">
 												<label for="TeacherTwoPhone" class="col-md-5 control-label">Phone Number Of Teacher Two </label>
 												<div class="col-md-7">
-													<input type="text" class="form-control" id="TeacherTwoPhone" name="TeacherTwoPhone" onchange="result();teacherref();">
+													<input type="text" class="form-control" id="TeacherTwoPhone" name="TeacherTwoPhone" onchange="result();teacherref();" value="#qScholarShipSelect.TeacherTwoPhone#">
 												</div>
 											</div>	
 										</div>
@@ -353,8 +374,17 @@
 								
 
 								<div class="text-right col-md-6">
+									<cfif val(qScholarShipSelect.ScholarShipID) gt 0 >
+										<input name="ApplicationTrackingNumber" value="#qScholarShipSelect.ApplicationTrackingNumber#" type="hidden">
+										<input name="SessionYear" value="#qScholarShipSelect.SessionYear#" type="hidden">
+										<input name="ScholarShipID" value="#qScholarShipSelect.ScholarShipID#" type="hidden">
+									</cfif>
 									<button type="submit" class="btn btn-group btn-default btn-sm btn-disabled updateButton" id="buttonDisabled">							
-										Apply														
+										<cfif val(qScholarShipSelect.ScholarShipID) gt 0 >
+											Update														
+										<cfelse>
+											Apply														
+										</cfif>
 										<i class="icon-right-open-big"></i>							
 									</button>
 								</div>
@@ -465,6 +495,9 @@
 				$("#buttonDisabled").prop("disabled",false);
 			}
 		}
-    
+		
+		window.onload = function() {
+            result();
+        };
 
     </script>
