@@ -90,9 +90,9 @@ on the right >> sign up form --->
                                         
                                     </form>
 									
-                                        <div class="form-group">
+                                        <!--- <div class="form-group">
 											<button onclick="resetPass()" id="forgetpassbtn" class="forgetpass">Forget Password?</button>
-                                        </div>
+                                        </div> --->
 										</fieldset>
                                 </div>
                                 <div id="forgetpass" class="forgetpass">
@@ -155,8 +155,7 @@ on the right >> sign up form --->
 										</div>
 			
 			
-											
-										    <a id="formOption" class="btn btn-success btn-signup" href="index.cfm?area=home&action=signup&justlogin=#url.justlogin#">Sign up</a>
+										    <a id="formOption" class="btn btn-success btn-signup" href="index.cfm?area=home&action=signupNotAvailable">Sign up</a>
 									
 										
 									</fieldset>

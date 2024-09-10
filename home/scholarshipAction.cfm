@@ -98,6 +98,8 @@
 			
 		WHERE ScholarShipID = #val(form.ScholarShipID)#	
 	</cfquery>
+	<cfset session.OnLoadMessage = "success('Update successfully')">
+	<cfset relocate (area = "home", action = "ApplicantList" )>
 <cfelse>
 	<cfquery datasource="#request.dsnameWriter#" name="qScholarShipInsert">	
 
@@ -164,10 +166,10 @@
 			)
 				
 	</cfquery>
+	<cfset session.OnLoadMessage = "success('Submitted successfully')">
+	<cfset relocate (area = "home", action = "success&tracking=#TrackingNumber#" )>
 </cfif>
 
-<cfset session.OnLoadMessage = "success('Submitted successfully')">
-<cfset relocate (area = "home", action = "success&tracking=#TrackingNumber#" )>
 
 
 
