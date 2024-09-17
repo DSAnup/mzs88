@@ -226,7 +226,15 @@
 															<a href="index.cfm?area=home&action=ApplicantList">Applicant List</a>														
 														</li>
 														
-			
+														
+														<li class="dropdown">
+															<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account</a>														
+															<ul class="dropdown-menu">
+																<li><a href="index.cfm?area=account&action=AccountSelect">Account List</a></li>															
+																<li><a href="index.cfm?area=account&action=TransactionSelect">Account Transaction</a></li>															
+																<li><a href="index.cfm?area=account&action=BalanceSelect">Balance</a></li>															
+															</ul>
+														</li>
 														
 														<li class="dropdown">
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile</a>														
