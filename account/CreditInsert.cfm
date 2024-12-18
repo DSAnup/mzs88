@@ -15,6 +15,11 @@
 		WHERE isClosed = 1
 	</cfquery>
    
+   <cfif qTransactionSelect.AccountID neq ''>
+		<cfset AccountID = qTransactionSelect.AccountID>
+	<cfelseif url.AccountID neq ''>
+		<cfset AccountID = url.AccountID>
+	</cfif>
   <!-- main-container start -->
     <!-- ================ -->
     <section class="main-container">
@@ -35,7 +40,7 @@
 								<h4 class="page-title">Add Fund </h4>
 								<div class="page-title-right">
 									<ol class="breadcrumb p-0 m-0">
-										<li class="breadcrumb-item"><a href="index.cfm?area=account&action=TransactionSelect">Transaction List</a></li>
+										<li class="breadcrumb-item"><a href="index.cfm?area=account&action=TransactionSelect&AccountID=<cfoutput>#AccountID#</cfoutput>">Transaction List</a></li>
 										<li class="breadcrumb-item active">Add Credit </li>
 									</ol>
 								</div>
@@ -45,7 +50,6 @@
 					</div>                
                                      
                     
-                
 
 					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=account&action=CreditInsertAction"  method="post" target="formpost" enctype="multipart/form-data">                      
 						<div class="space-bottom"></div>    
@@ -58,16 +62,19 @@
 											<div class="form-group">
 												<label for="AccountID" class="col-md-3 control-label">Account Type <small class="text-default">*</small></label>
 												<div class="col-md-9">
-													<select class="form-control required" id="Class" name="AccountID">	
+													<select class="form-control required" id="Class" name="AccountID" disabled>	
 														<option value="">Choose a Account</option>
 														<cfloop query="qAccountSelect">
-															<option value="#qAccountSelect.AccountID#" <cfif qTransactionSelect.AccountID eq qAccountSelect.AccountID>selected</cfif>>#qAccountSelect.AccountName#</option>
+															<option value="#qAccountSelect.AccountID#" 
+															<cfif AccountID eq qAccountSelect.AccountID>
+															selected</cfif>>#qAccountSelect.AccountName#</option>
 														</cfloop>
 													</select>
+													<input type="hidden" name="AccountID" value="#AccountID#">
 												</div>
 											</div>
 											<div class="form-group">
-												<label for="Credit" class="col-md-3 control-label">Credit<small class="text-default">*</small></label>
+												<label for="Credit" class="col-md-3 control-label"> Amount Received<small class="text-default">*</small></label>
 												<div class="col-md-9">
 													<input type="number" class="form-control required" id="Credit" name="Credit" value="#qTransactionSelect.Credit#">
 												</div>
@@ -84,13 +91,9 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label for="Note" class="col-md-3 control-label">Note </label>
+												<label for="Note" class="col-md-3 control-label">Payment Source <small class="text-default">*</small></label>
 												<div class="col-md-9">
-													<textarea name="Note" class="form-control">
-														<cfif trim(len(qTransactionSelect.Note)) gt 0 >
-															#qTransactionSelect.Note#
-														</cfif>
-													</textarea>
+													<textarea name="Note" class="form-control" required><cfif trim(len(qTransactionSelect.Note)) gt 0 >#qTransactionSelect.Note#</cfif></textarea>
 												</div>
 											</div>
 										</div>
@@ -136,3 +139,9 @@
 	
 	    
     </cfoutput>
+
+	<script>
+    // Set today's date as default
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('TransactionDate').value = today;
+  </script>

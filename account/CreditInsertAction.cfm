@@ -9,7 +9,6 @@
 	<cfabort>
 </cfif>
 
-
 <cfif val(form.TransactionID) gt 0 >
 
 	<cfquery datasource="#request.dsnameWriter#" name="qTransactionUpdate">	
@@ -49,7 +48,7 @@
 	</cfquery>
 	<cfset session.OnLoadMessage = "success('Credit Insert successfully')">
 </cfif>
-<cfset relocate (area = "account", action = "CreditInsert" )>
+<cfset relocate (area = "account", action = "TransactionSelect&AccountID=#form.AccountID#" )>
 
 
 

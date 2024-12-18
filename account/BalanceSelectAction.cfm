@@ -72,7 +72,11 @@
                                         <cfset grandTotalSpend = grandTotalSpend + qBalanceReport.Debit>
                                     </td>
                                     <td>
-                                        #dollarFormat(qBalanceReport.Credit - qBalanceReport.Debit)#
+                                        <cfif (qBalanceReport.Credit - qBalanceReport.Debit) gt 0>
+                                            <span style="color:green;"> #dollarFormat(qBalanceReport.Credit - qBalanceReport.Debit)#</span>
+                                        <cfelse>
+                                            <span style="color:red;">#dollarFormat(qBalanceReport.Credit - qBalanceReport.Debit)#</span>
+                                        </cfif>
                                         <cfset grandTotalBalance = grandTotalBalance + (qBalanceReport.Credit-qBalanceReport.Debit)>
                                     </td>
                                 </tr>
@@ -86,7 +90,13 @@
                                 <td>Total</td>
                                 <td>#dollarFormat(grandTotalDeposit)#</td>
                                 <td>#dollarFormat(grandTotalSpend)#</td>
-                                <td>#dollarFormat(grandTotalBalance)#</td>
+                                <td>
+                                    <cfif grandTotalBalance gt 0>
+                                        <span style="color:green;"> #dollarFormat(grandTotalBalance)#</span>
+                                    <cfelse>
+                                        <span style="color:red;">#dollarFormat(grandTotalBalance)#</span>
+                                    </cfif>
+                                </td>
 
                             </th>
                         </table>

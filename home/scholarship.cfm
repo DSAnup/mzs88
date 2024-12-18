@@ -186,45 +186,14 @@
 								<legend><span>Merit Analysis</span></legend>
 								<div class="row col-md-10">
 									<div class="col-lg-12">
-										<div class="form-group">
-											<label for="System" class="col-md-5 control-label">Merit System <small class="text-default">*</small></label>
-											<div class="col-md-7">
-												<select class="form-control required" id="meritsystemselectid" name="meritsystemselectid" onchange="meritsystemselect();result();">
-													<option value="">Choose An Merit System</option>
-													<option value="A" <cfif len(qScholarShipSelect.MeritSymbol) gt 4>selected</cfif>>Merit Symbol System</option>
-													<option value="B" <cfif qScholarShipSelect.MeritRank gt '0' >selected</cfif>>Merit Rank System</option>
-												</select>
-											</div>
-										</div>
-										<div id="symbol" <cfif len(qScholarShipSelect.MeritSymbol) gt 4>style="display:block;"<cfelse>style="display:none;"</cfif>>
-											<small class="form-text text-muted">New system please select your symbol</small>
-												<div class="form-group">
-													<label for="MeritSymbol" class="col-md-5 control-label" style="padding-top:0px;">Merit Symbol</label>
-													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol1" value="triangle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'triangle'>checked</cfif>> 
-														Triangle 
-													</div>
-													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol2" value="circle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'circle'>checked</cfif>> 
-														Circle
-													</div>
-													<div class="col-md-2">
-														<input class="form-check-input" type="radio" name="MeritSymbol" id="MeritSymbol3" value="rectangle" onchange="result(); meritsystem();" <cfif qScholarShipSelect.MeritSymbol eq 'rectangle'>checked</cfif>> 
-														Rectangle
-														<input class="form-check-input hidden" <cfif qScholarShipSelect.MeritSymbol eq 'triangle' or qScholarShipSelect.MeritSymbol eq 'circle' or qScholarShipSelect.MeritSymbol eq 'rectangle' >unchecked <cfelse>checked</cfif> type="radio" name="MeritSymbol" id="MeritSymbol4" value="none" onchange="result(); meritsystem();"> 
-
-													</div>
-												</div>
-										</div>
 										
-										<div id="rank" style="<cfif qScholarShipSelect.MeritRank gt '0'>display:block;<cfelse>display:none;</cfif>">
+										<div id="rank" style="display:block;">
 											<div class="col-lg-12">
-												<small class="form-text text-muted">Under legacy system, please select your rank</small>
 												<div class="form-group">
-													<label for="MeritRank" class="col-md-5 control-label">Merit Rank</label>
+													<label for="MeritRank" class="col-md-5 control-label">Select Your Roll Number <small class="text-default">*</small></label>
 													<div class="col-md-7">
 														<select class="form-control" id="MeritRank" name="MeritRank" onchange="result();meritsystem();">
-															<option value="0">Select your rank</option>
+															<option value="0">Select your roll number</option>
 															<option value="40" <cfif qScholarShipSelect.MeritRank eq '40'>selected</cfif>>1</option>
 															<option value="39" <cfif qScholarShipSelect.MeritRank eq '39'>selected</cfif>>2</option>
 															<option value="38" <cfif qScholarShipSelect.MeritRank eq '38'>selected</cfif>>3</option>
@@ -405,36 +374,8 @@
 	    
     </cfoutput>
 	<script language="javascript"> 
-		function meritsystemselect(){
-			var systemCheck = $("#meritsystemselectid").val();
-			if (systemCheck === 'A'){
-				$('#rank').hide();
-				$("#MeritRank").val('0');
-				$('#symbol').show();
-			} else if (systemCheck === 'B'){
-				$('#symbol').hide();
-				$('#MeritSymbol4').prop('checked', true);
-				$('#rank').show();
-			} else {
-				$('#symbol').hide();
-				$('#rank').hide();
-
-			}
-		}
 
 		function meritsystem(){
-			var meritSymbolMark = 0;
-			var meritSymbol= $('input[name="MeritSymbol"]:checked').val();
-			if (meritSymbol == "triangle"){
-				meritSymbolMark = 40
-			} else if (meritSymbol == "circle"){
-				var meritSymbolMark = 30;
-			} else if (meritSymbol == "rectangle") {
-				var meritSymbolMark = 20;
-			} else {
-				var meritSymbolMark = 0;
-			}
-
 
 			var meritRankMark = 0;
 			var meritRank = $("#MeritRank").val();
@@ -442,10 +383,8 @@
 				meritRankMark = meritRank;
 			}
 			
-			var meritMark = 0
-			if (meritSymbolMark > 0) {
-				meritMark = meritSymbolMark;
-			} else if (meritRankMark > 0) {
+			var meritMark = 0 
+			if (meritRankMark > 0) {
 				meritMark = meritRankMark;
 			} else {
 				meritMark = 0;

@@ -5,7 +5,6 @@
 		SELECT *	   
 		FROM 
 			Account 
-		WHERE isClosed = 1
 	</cfquery>
 <!-- main-container start -->
 <!-- ================ -->
@@ -57,14 +56,19 @@
 																	<select class="form-control required" name="AccountID" id="AccountID">
 																		<option value="">Show All</option>													
 																		<cfloop query="qAccountSelect">
-																			<option value="#qAccountSelect.AccountID#" <cfif session.AccountID eq qAccountSelect.AccountID>selected</cfif>>#qAccountSelect.AccountName#</option>
+																			<option value="#qAccountSelect.AccountID#" <cfif session.AccountID eq qAccountSelect.AccountID>selected</cfif>>
+																			#qAccountSelect.AccountName# <cfif qAccountSelect.isClosed eq 1>
+																			- (Open)
+																			<cfelse>
+																			- (Close)
+																			</cfif>
+																			</option>
 																		</cfloop>
 																		
 																	</select>
 																</div>
 															</div>
 														</div>      
-														
 														<div class="col-md-3">
 															<div class="form-group row">
 																<label for="isClosed" class="col-form-label col-lg-12 sholwlog-label datasent">Status</label>
@@ -72,11 +76,13 @@
 																	<cfparam name="session.isClosed"	 default="">										
 																	<select class="form-control required" name="isClosed" id="isClosed">
 																		<option value="">Show All</option>							
-																		<option value="1" <cfif session.isClosed eq '1'>selected</cfif>>Open</option>
+																		<option value="1" <cfif session.isClosed eq '1' or session.isClosed eq ''>selected</cfif>>Open</option>
 																		<option value="0" <cfif session.isClosed eq '0'>selected</cfif>>Close</option>
 																		
 																	</select>
 																</div>
+																
+<!--- 														<cfdump  var="#session#"> --->
 															</div>
 														</div>  
 				

@@ -49,7 +49,7 @@
 	</cfquery>
 	<cfset session.OnLoadMessage = "success('Debit Insert successfully')">
 </cfif>
-<cfset relocate (area = "account", action = "DebitInsert" )>
+<cfset relocate (area = "account", action = "TransactionSelect&AccountID=#form.AccountID#" )>
 
 
 

@@ -56,7 +56,10 @@
 								</cfif>
 							</td>
 							<td>
-								<a href="index.cfm?area=account&action=AccountInsert&AccountID=#qAccountSelect.AccountID#">Update</a>
+								<a href="index.cfm?area=account&action=AccountInsert&AccountID=#qAccountSelect.AccountID#">Update</a> 
+								<cfif qAccountSelect.isClosed eq 1>||
+								<a href="index.cfm?area=account&action=TransactionSelect&AccountID=#qAccountSelect.AccountID#">Manage</a>
+								</cfif>
 							</td>
 						</tr>
 					</cfoutput>	

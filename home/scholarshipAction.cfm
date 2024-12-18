@@ -1,7 +1,6 @@
 <cfset errorMessage = "">
 <cfparam  name="session.profile.AppUser.AppUserID" default="0">
 <cfparam  name="currentPicture" default="">
-<cfparam  name="MeritSymbol" default="0">
 <cfparam  name="form.ScholarShipID" default="0">
 <cfparam  name="form.SessionYear" default="#Year(Now())#">
 <cfparam  name="form.ApplicationTrackingNumber" default="0">
@@ -73,12 +72,6 @@
 			,[GuardianName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.GuardianName#">
 			,[GuardianPhoneNumber] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.GuardianPhoneNumber#">
 			,[Address] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Address#">
-			,[MeritSymbol] = 
-			<cfif form.MeritSymbol neq ''>
-				<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.MeritSymbol#">
-			<cfelse>
-				NULL
-			</cfif>
 			,[MeritRank] = 
 			<cfif form.MeritRank neq ''>
 				<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.MeritRank#">
@@ -115,7 +108,6 @@
 			,[GuardianName]
 			,[GuardianPhoneNumber]
 			,[Address]
-			,[MeritSymbol]
 			,[MeritRank]
 			,[ParentIncome]
 			,[TeacherOne]
@@ -125,8 +117,7 @@
 			,[Score]
 			,[ApplicationTrackingNumber]
 			,[SessionYear]
-			,[DateCreated]
-			,[CreatedBy])
+			,[DateCreated])
 		VALUES
 			(
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FullName#">,
@@ -143,11 +134,6 @@
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.GuardianName#">,
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.GuardianPhoneNumber#">,
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Address#">,
-			<cfif form.MeritSymbol neq ''>
-				<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.MeritSymbol#">,
-			<cfelse>
-				NULL,
-			</cfif>
 			<cfif form.MeritRank neq ''>
 				<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.MeritRank#">,
 			<cfelse>
@@ -161,8 +147,7 @@
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Score#">,
 			<cfqueryparam cfsqltype="cf_sql_integer" value="#TrackingNumber#">,
 			<cfqueryparam cfsqltype="cf_sql_integer" value="#form.SessionYear#">,
-			getDate(),
-			#val(session.profile.AppUser.AppUserID)#
+			getDate()
 			)
 				
 	</cfquery>

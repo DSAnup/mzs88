@@ -144,34 +144,42 @@
 										<tbody>
 											<tr>
 												<th scope="row">
-													<cfif qScholarShipSelect.MeritRank gt '0'>
-														Merit Rank :
-													<cfelse>
-														Merit Symbol :
-													</cfif>
+													Your Roll Number :
 												</th>
 												<td>
-													<cfif qScholarShipSelect.MeritRank gt '0'>
-														#qScholarShipSelect.MeritRank#
-													<cfelse>
-														#qScholarShipSelect.MeritSymbol#
+													<cfif qScholarShipSelect.MeritRank eq 40 >
+														1
+													<cfelseif qScholarShipSelect.MeritRank eq 39>
+														2
+													<cfelseif qScholarShipSelect.MeritRank eq 38>
+														3
+													<cfelseif qScholarShipSelect.MeritRank eq 37>
+														4
+													<cfelseif qScholarShipSelect.MeritRank eq 36>
+														5
+													<cfelseif qScholarShipSelect.MeritRank eq 35>
+														6
+													<cfelseif qScholarShipSelect.MeritRank eq 34>
+														7
+													<cfelseif qScholarShipSelect.MeritRank eq 33>
+														8
+													<cfelseif qScholarShipSelect.MeritRank eq 32>
+														9
+													<cfelseif qScholarShipSelect.MeritRank eq 31>
+														10
+													<cfelseif qScholarShipSelect.MeritRank eq 25>
+														11-30
+													<cfelseif qScholarShipSelect.MeritRank eq 20>
+														31-50
+													<cfelseif qScholarShipSelect.MeritRank eq 10>
+														51+
 													</cfif>
 												</td>
 												<th scope="row">
 													Score :
 												</th>
 												<td>
-													<cfif qScholarShipSelect.MeritRank gt '0'>
-														#qScholarShipSelect.MeritRank#
-													<cfelse>
-														<cfif qScholarShipSelect.MeritSymbol eq 'triangle'>
-															40
-														<cfelseif qScholarShipSelect.MeritSymbol eq 'circle'>
-															30
-														<cfelse>
-															20
-														</cfif>
-													</cfif>
+													#qScholarShipSelect.MeritRank#
 												</td>
 											</tr>
 										</tbody>
