@@ -26,10 +26,12 @@
 				<!-- ================ -->
 				<div class="row">
 					<div class="col-md-8">
-						<h1 class="page-title">Member List</h1>
+						<p style="font-size: 38px">
+							Member List
+						</p>
 					</div>
 					<div class="col-md-4">
-					
+						<a id="formOption" class="btn btn-success btn-signup" href="index.cfm?area=appuser&action=addAppUser" style="float:right;">Add Member</a>
 					</div>
 				</div>
 				<div class="separator-2"></div>
@@ -62,7 +64,7 @@
 								<img class="profile_photo" src="assets/alumni_pictures/#qAppUserSelect.Picture#" alt=""/>
 							</cfif>
 							</td>
-							<td><a href="index.cfm?area=appuser&action=editUser&AppUserID=#qAppUserSelect.AppUserID#">View Full Profile</a></td>
+							<td><a href="index.cfm?area=appuser&action=updateAppUser&AppUserID=#qAppUserSelect.AppUserID#">View Full Profile</a></td>
 						</tr>
 					</cfoutput>	
 				

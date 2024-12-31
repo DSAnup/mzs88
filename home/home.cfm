@@ -22,6 +22,7 @@
 <div id="application-banner">
     <div class="container">
         <div class="banner-wrap">
+            <p class="app_deadline"> *** All application must be submitted by the 15th of January 2025.</p>
             <a href="index.cfm?area=home&action=Scholarship" title="Click here to go to application process.">
                 <img src="assets/mzs-banner.jpg" class="img-fluid" alt="Apply For Scolarship">
             </a>

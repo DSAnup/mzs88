@@ -54,7 +54,7 @@
 
 <cfparam name="url.justlogin" default="" >
 
-<cfset relocate (area = "home", action = "AlumniSelect")>
+<cfset relocate (area = "appuser", action = "MemberSelect")>
  
 
 

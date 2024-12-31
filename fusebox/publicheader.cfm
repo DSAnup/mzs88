@@ -48,7 +48,7 @@
 		<link href="assets/publicsite/css/skins/light_green.css" rel="stylesheet">
 
 		<!-- Custom css -->
-		<link href="assets/publicsite/css/custom.css" rel="stylesheet">
+		<link href="assets/publicsite/css/custom.css?v=<cfoutput>#now()#</cfoutput>" rel="stylesheet">
 		
 		<!-- Jquery and Bootstap core js files -->
  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
