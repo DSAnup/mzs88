@@ -160,7 +160,7 @@
 
 								<!-- logo -->
 								<div class="logo">
-									<a href="/"><img id="logo" src="assets/logo.png" alt="www.godspeedcorp.com"></a>
+									<a href="/"><img id="logo" src="assets/mzs-logo.png" alt="mzsalumni"></a>
 								</div>
 
 								<!-- name-and-slogan -->
@@ -219,7 +219,7 @@
 														
 														
 														<li>
-															<a href="index.cfm?area=home&action=AlumniSelect">Alumni List</a>														
+															<a href="index.cfm?area=appuser&action=MemberSelect">Member List</a>														
 														</li>
 
 														<li>
@@ -231,7 +231,8 @@
 															<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account</a>														
 															<ul class="dropdown-menu">
 																<li><a href="index.cfm?area=account&action=AccountSelect">Account List</a></li>		
-																<li><a href="index.cfm?area=account&action=BalanceSelect">Balance</a></li>															
+																<li><a href="index.cfm?area=account&action=BalanceSelect">Balance</a></li>
+																<li><a href="index.cfm?area=account&action=CreditSelect">Income Report</a></li>															
 															</ul>
 														</li>
 														

@@ -18,12 +18,17 @@
   </cfquery>--->
 <cfoutput>
 
-<center>
 
+<div id="application-banner">
+    <div class="container">
+        <div class="banner-wrap">
+            <a href="index.cfm?area=home&action=Scholarship" title="Click here to go to application process.">
+                <img src="assets/mzs-banner.jpg" class="img-fluid" alt="Apply For Scolarship">
+            </a>
+        </div>
+    </div>
+</div>
 <!--- <a href="batch88.pdf"><img src="book.jpg" /></a> --->
-<a href="index.cfm?area=home&action=Scholarship"><img src="assets/banner.jpg" /></a>
-
-</center>
 
 <div class="home-page-banner">
     <div class="home-banner-overlay">
@@ -33,7 +38,7 @@
                 <p>THIS IS AN INFORMATION PAGE OF MYMENSINGH ZILLA SCHOOL (MZS) 88 PASSED-OUT BATCH. THIS PAGE KEEPS TRACK OF ALL FRUITS OF MZS WHO FINISHED THEIR SSC IN THE YEAR 1988</p>
 			<cfparam name="session.profile.IsLoggedIn" default="false" >						
 			<cfif session.profile.IsLoggedIn eq true>	
-                <a href="index.cfm?area=home&action=AlumniSelect" class="order-button">Alumni List</a>
+                <a href="index.cfm?area=appuser&action=MemberSelect" class="order-button">Member List</a>
 			<cfelse>
 				<a href="index.cfm?area=home&action=signup" class="order-button">Register Now</a>
 			</cfif>

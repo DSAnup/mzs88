@@ -1,48 +1,11 @@
 
 
-<cfquery datasource="#request.dsnameReader#" name="qCountrySelect">
 
-	
-	select CountryID, CountryName from country where ISO2 = 'US'
-	union all
-	select CountryID, CountryName from country where ISO2 = 'GB'
-	union all
-	select CountryID, CountryName from country where ISO2 = 'CA'
-	union all
-	select CountryID, CountryName from country where ISO2 = 'IN'
-	union all
-	
-	select CountryID, CountryName 
-		from Country
-		
-
-</cfquery>
 
     
     <cfparam  name="session.profile.AppUser.AppUserID" default="0">
     <cfparam  name="url.AppUserID" default="0">
-    
-<!---    <cfparam  name="session.profile.AppUser.NameInBangla" default="">
-    <cfparam  name="session.profile.AppUser.NameInEnglish" default="">
-    <cfparam  name="session.profile.AppUser.NickName" default="">
-    <cfparam  name="session.profile.AppUser.FathersName" default="">
-    <cfparam  name="session.profile.AppUser.MothersName" default="">
-    <cfparam  name="session.profile.AppUser.PermanentAddress" default="">
-    <cfparam  name="session.profile.AppUser.PresentAddress" default="">
-    <cfparam  name="session.profile.AppUser.City" default="">
-    <cfparam  name="session.profile.AppUser.State" default="">
-    <cfparam  name="session.profile.AppUser.Country" default="">
-    <cfparam  name="session.profile.AppUser.CountryID" default="">
-    <cfparam  name="session.profile.AppUser.CountryName" default="">
-     <cfparam  name="session.profile.AppUser.Email" default="">
-    <cfparam  name="session.profile.AppUser.Children" default="">
-    <cfparam  name="session.profile.AppUser.NumberOfWife" default="">
-    <cfparam  name="session.profile.AppUser.BloodGroup" default="">
-    <cfparam  name="session.profile.AppUser.PhoneNumer" default="">
-    <cfparam  name="session.profile.AppUser.Profession" default="">
-    <cfparam  name="session.profile.AppUser.WorkPlaceDetails" default="">
-    <cfparam  name="session.profile.AppUser.Password" default="">
-    <cfparam  name="session.profile.AppUser.Picture" default="">--->
+
 	
 	
 	<cfquery datasource="#request.dsnameReader#" name="qAppUserSelect"> 
@@ -399,11 +362,7 @@
 	    
     </cfoutput>
 	
-	<cfif session.profile.AppUser.AppUserID neq url.AppUserID and val(qAppUserSelect.AppUserID) gt 0>
-		<script>			
-			$(".main-container :input").prop("disabled", true);
-		</script>
-	</cfif>
+	
    
     <script language="javascript">    
 	

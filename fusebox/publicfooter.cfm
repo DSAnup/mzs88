@@ -5,7 +5,7 @@
 	<iframe id="formpost" name="formpost" height="800" style="width:100%; display: block; margin-top:20px; visibility: visible;"></iframe> 
 </cfif> --->
 
-<cfif session.isDebugMode eq true>
+<cfif session.isDebugMode eq true or 1>
 	<iframe id="formpost" name="formpost" height="800" style="width:100%; display: block; margin-top:20px;"></iframe> 
 <cfelse>
 	<iframe id="formpost" name="formpost" style="width:1px; height:1px; display: none; margin-top:0px;"></iframe> 	
@@ -21,7 +21,7 @@
 						<div class="row">
 							<div class="col-md-7">
 								<div class="footer-content">
-									<div class="logo-footer"><img id="logo-footer" src="assets/logo.png" alt=""></div>
+									<div class="logo-footer"><img id="logo-footer" src="assets/mzs-logo.png" alt=""></div>
 									
 								</div>
 							</div>
@@ -133,7 +133,7 @@
 		<script type="text/javascript" src="assets/js/onepagenav.js"></script>
 		<script type="text/javascript" src="assets/js/datatables.min.js"></script>
 
-<!---     <script src='https://www.google.com/recaptcha/api.js'></script> --->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 	
 	
 	
@@ -157,6 +157,10 @@
 		$(document).ready(function() {
 			$('#alumni').DataTable();
 		} );
+	
+	
+	
+
 	/*  ==========================================
 		SHOW UPLOADED IMAGE
 	* ========================================== */

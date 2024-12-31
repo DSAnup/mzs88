@@ -1,4 +1,4 @@
-<cfdump var="#form#">
+
 <cfset errorMessage = "">
 <cfparam  name="currentPicture" default="">
 <cfparam  name="session.profile.AppUser.AppUserID" default="0">

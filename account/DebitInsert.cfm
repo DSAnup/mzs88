@@ -12,8 +12,16 @@
 		SELECT *	   
 		FROM 
 			Account 
-		WHERE isClosed = 1
+		
 	</cfquery>
+
+	
+<cfif qTransactionSelect.recordCount gt 0>
+	<cfset url.AccountID = qTransactionSelect.AccountID>
+	<cfset local.TransactionDate = qTransactionSelect.TransactionDate>	
+<cfelse>
+	<cfset local.TransactionDate = Now()>
+</cfif>
    
    <cfif qTransactionSelect.AccountID neq ''>
 		<cfset AccountID = qTransactionSelect.AccountID>
@@ -41,7 +49,7 @@
 								<div class="page-title-right">
 									<ol class="breadcrumb p-0 m-0">
 										<li class="breadcrumb-item"><a href="index.cfm?area=account&action=TransactionSelect&AccountID=<cfoutput>#AccountID#</cfoutput>">Transaction List</a></li>
-										<li class="breadcrumb-item active">Add Fund to Expense</li>
+										<li class="breadcrumb-item active">Add Expense</li>
 									</ol>
 								</div>
 								<div class="clearfix"></div>
@@ -51,7 +59,7 @@
                     
                 
 
-					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=account&action=DebitInsertAction"  method="post" target="formpost" enctype="multipart/form-data">                      
+					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=account&action=DebitInsertAction"  method="post" target="formpost" enctype="multipart/form-data" onsubmit="return validateForm()">                      
 						<div class="space-bottom"></div>    
 						
 							<!---Personal Details --->
@@ -79,6 +87,7 @@
 													<input type="number" class="form-control required" id="Debit" name="Debit" value="#qTransactionSelect.Debit#">
 												</div>
 											</div>
+											
 										</div>
 									</div>
 									
@@ -87,15 +96,16 @@
 											<div class="form-group">
 												<label for="TransactionDate" class="col-md-3 control-label">Transaction Date <small class="text-default">*</small></label>
 												<div class="col-md-9">
-													<input type="date" class="form-control required" id="TransactionDate" name="TransactionDate" minlength="10"  value="#DateFormat(qTransactionSelect.TransactionDate, "yyyy-mm-dd")#">
+													<input class="form-control required" type="text" id="TransactionDate" name="TransactionDate" value="#dateformat(local.TransactionDate, 'mm/dd/yyyy')#">
 												</div>
 											</div>
 											<div class="form-group">
-												<label for="Note" class="col-md-3 control-label">Paid To <small class="text-default">*</small></label>
+												<label for="Note" class="col-md-3 control-label">Note</label>
 												<div class="col-md-9">
-													<textarea name="Note" class="form-control" required><cfif trim(len(qTransactionSelect.Note)) gt 0 >#trim(qTransactionSelect.Note)#</cfif></textarea>
+													<textarea name="Note" class="form-control"><cfif trim(len(qTransactionSelect.Note)) gt 0 >#qTransactionSelect.Note#</cfif></textarea>
 												</div>
 											</div>
+											
 										</div>
 									</div>
 							</fieldset>
@@ -141,7 +151,12 @@
     </cfoutput>
 
 	<script>
-    // Set today's date as default
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('TransactionDate').value = today;
-  </script>
+		// Set today's date as default
+		
+		function validateForm() {
+			
+	
+			return true; // Allow form submission
+		}
+	
+	</script>

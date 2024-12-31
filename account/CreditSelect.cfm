@@ -6,6 +6,14 @@
 		FROM 
 			Account 
 	</cfquery>
+
+<cfquery datasource="#request.dsnameReader#" name="qAppUserSelect"> 
+	SELECT *	   
+	FROM 
+		AppUser 
+</cfquery>
+
+
 <!-- main-container start -->
 <!-- ================ -->
 <section class="main-container">
@@ -24,11 +32,11 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="page-title-box">
-							<h4 class="page-title">Balance Summary </h4>
+							<h4 class="page-title">Credit Report </h4>
 							<div class="page-title-right">
 								<ol class="breadcrumb p-0 m-0">
 									<li class="breadcrumb-item"><a href="/">Home</a></li>
-									<li class="breadcrumb-item active">Balance Summary </li>
+									<li class="breadcrumb-item active">Credit Report </li>
 								</ol>
 							</div>
 							<div class="clearfix"></div>
@@ -45,7 +53,7 @@
 				
 										<cfoutput>
 											<div class="container">                                  
-												<form id="formBalanceSelect" action="partialIndex.cfm?area=account&action=BalanceSelectAction" method="post" target="formpost">
+												<form id="formBalanceSelect" action="partialIndex.cfm?area=account&action=CreditSelectAction" method="post" target="formpost">
 													<div class="row">
 				
 														<div class="col-md-3">
@@ -71,13 +79,13 @@
 														</div>      
 														<div class="col-md-3">
 															<div class="form-group row">
-																<label for="isClosed" class="col-form-label col-lg-12 sholwlog-label datasent">Status</label>
-																<div class="col-lg-12">	
-																	<cfparam name="session.isClosed"	 default="">										
-																	<select class="form-control required" name="isClosed" id="isClosed">
-																		<option value="">Show All</option>							
-																		<option value="0" selected>Open</option>
-																		<option value="1" >Close</option>
+																<label for="sourceUserID" class="col-form-label col-lg-12 sholwlog-label datasent">Member</label>
+																<div class="col-lg-12">																											
+																	<select class="form-control required" name="sourceUserID" id="sourceUserID">
+																		<option value="">Show All</option>													
+																		<cfloop query="qAppUserSelect">
+																			<option value="#qAppUserSelect.AppUserID#" >#qAppUserSelect.NameInEnglish# (#qAppUserSelect.Nickname#)</option>																				
+																		</cfloop>
 																		
 																	</select>
 																</div>

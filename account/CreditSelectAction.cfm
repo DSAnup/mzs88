@@ -1,7 +1,4 @@
 
-<cfset session.AccountID = form.AccountID>
-<cfset session.isClosed = form.isClosed>
-
 
 
 <cfquery datasource="#request.dsnameReader#" name="qBalanceReport"> 
@@ -16,9 +13,7 @@
         AND TD.AccountID = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.AccountID#">
     </cfif>
 
-    <cfif trim(form.isClosed) neq "">
-        AND A.isClosed = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.isClosed#">
-    </cfif>
+   
 
     <cfif trim(form.dateFrom) neq "" and trim(form.dateTo) neq "">
         AND TD.TransactionDate BETWEEN 
