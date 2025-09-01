@@ -78,7 +78,7 @@
                                 <a href="/" class="logo text-center logo-light">
                                     <span class="logo-lg">
                                         <!---<img src="assets/images/logo-light.png" alt="" height="16">--->
-                                        <img src="/assets/images/logo.png" alt="" height="32">	
+                                        <img src="/assets/images/mzs-logo.png" alt="" height="32">	
                                         	
                                         	
                                         <!-- <span class="logo-lg-text-dark">Moltran</span> -->

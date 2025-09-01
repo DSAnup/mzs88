@@ -8,11 +8,29 @@
 		WHERE TD.TransactionID = <cfqueryparam cfsqltype="cf_sql_integer" value="#val(url.TransactionID)#">	
 	</cfquery>
 
+	
+
+	<cfif qTransactionSelect.recordCount gt 0>
+		<cfset url.AccountID = qTransactionSelect.AccountID>
+		<cfset local.TransactionDate = qTransactionSelect.TransactionDate>	
+	<cfelse>
+		<cfset local.TransactionDate = Now()>
+	</cfif>
+
+	
 	<cfquery datasource="#request.dsnameReader#" name="qAccountSelect"> 
 		SELECT *	   
 		FROM 
 			Account 
-		WHERE isClosed = 1
+		WHERE AccountID = #url.AccountID#
+			
+	</cfquery>
+
+	<cfquery datasource="#request.dsnameReader#" name="qAppUserSelect"> 
+		SELECT *	   
+		FROM 
+			AppUser
+			order by NickName
 	</cfquery>
    
    <cfif qTransactionSelect.AccountID neq ''>
@@ -51,7 +69,7 @@
                                      
                     
 
-					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=account&action=CreditInsertAction"  method="post" target="formpost" enctype="multipart/form-data">                      
+					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=account&action=CreditInsertAction"  method="post" target="formpost" enctype="multipart/form-data" onsubmit="return validateForm()">                      
 						<div class="space-bottom"></div>    
 						
 							<!---Personal Details --->
@@ -65,9 +83,8 @@
 													<select class="form-control required" id="Class" name="AccountID" disabled>	
 														<option value="">Choose a Account</option>
 														<cfloop query="qAccountSelect">
-															<option value="#qAccountSelect.AccountID#" 
-															<cfif AccountID eq qAccountSelect.AccountID>
-															selected</cfif>>#qAccountSelect.AccountName#</option>
+															<option value="#qAccountSelect.AccountID#" selected>
+																#qAccountSelect.AccountName#</option>
 														</cfloop>
 													</select>
 													<input type="hidden" name="AccountID" value="#AccountID#">
@@ -76,7 +93,20 @@
 											<div class="form-group">
 												<label for="Credit" class="col-md-3 control-label"> Amount Received<small class="text-default">*</small></label>
 												<div class="col-md-9">
-													<input type="number" class="form-control required" id="Credit" name="Credit" value="#qTransactionSelect.Credit#">
+													<input type="text" class="form-control required" id="Credit" name="Credit" value="#qTransactionSelect.Credit#">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="SourceUserId" class="col-md-3 control-label"> Member</label>
+												<div class="col-md-9">
+													<select class="form-control" id="SourceUserID" name="SourceUserID">	
+														<option value="">Choose a Member</option>
+														<cfloop query="qAppUserSelect">
+															<option value="#qAppUserSelect.AppUserID#" 
+															<cfif qAppUserSelect.AppUserID eq qTransactionSelect.SourceUserID>
+															selected</cfif>>#qAppUserSelect.NickName# - #qAppUserSelect.NameInEnglish#</option>
+														</cfloop>
+													</select>
 												</div>
 											</div>
 										</div>
@@ -87,17 +117,25 @@
 											<div class="form-group">
 												<label for="TransactionDate" class="col-md-3 control-label">Transaction Date <small class="text-default">*</small></label>
 												<div class="col-md-9">
-													<input type="date" class="form-control required" id="TransactionDate" name="TransactionDate" minlength="10"  value="#DateFormat(qTransactionSelect.TransactionDate, "yyyy-mm-dd")#">
+													<input class="form-control required" type="text" id="TransactionDate" name="TransactionDate" value="#dateformat(local.TransactionDate, 'mm/dd/yyyy')#">
+												</div>
+
+											</div>
+											<div class="form-group">
+												<label for="Note" class="col-md-3 control-label">Note</label>
+												<div class="col-md-9">
+													<textarea name="Note" class="form-control"><cfif trim(len(qTransactionSelect.Note)) gt 0 >#qTransactionSelect.Note#</cfif></textarea>
 												</div>
 											</div>
 											<div class="form-group">
-												<label for="Note" class="col-md-3 control-label">Payment Source <small class="text-default">*</small></label>
+												<label for="SourceFromOthers" class="col-md-3 control-label"> Source (if not from Member) </label>
 												<div class="col-md-9">
-													<textarea name="Note" class="form-control" required><cfif trim(len(qTransactionSelect.Note)) gt 0 >#qTransactionSelect.Note#</cfif></textarea>
+													<input type="text" class="form-control" id="SourceFromOthers" name="SourceFromOthers" value="#qTransactionSelect.SourceFromOthers#">
 												</div>
 											</div>
 										</div>
 									</div>
+
 							</fieldset>
 							
 
@@ -112,7 +150,7 @@
 
 								<div class="text-right col-md-6">
 									<cfif val(qTransactionSelect.TransactionID) gt 0 >
-										<input name="TransactionID" value="#qTransactionSelect.TransactionID#" type="hidden">
+										<input  name="TransactionID" value="#qTransactionSelect.TransactionID#" type="hidden">
 									</cfif>
 									<button type="submit" class="btn btn-group btn-default btn-sm btn-disabled updateButton" id="buttonDisabled">							
 										<cfif val(qTransactionSelect.TransactionID) gt 0 >
@@ -140,8 +178,26 @@
 	    
     </cfoutput>
 
-	<script>
-    // Set today's date as default
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('TransactionDate').value = today;
-  </script>
+<script>
+	
+	function validateForm() {
+		const SourceUser = document.getElementById("SourceUserID");
+		const SourceOthers = document.getElementById("SourceFromOthers");
+
+		const isSelectEmpty = SourceUser.value === "";
+		const isTextInputEmpty = SourceOthers.value.trim() === "";
+	
+		if (isSelectEmpty && isTextInputEmpty) {
+			alert("Please select a source user or specify a source.");
+			return false; // Prevent form submission
+		}
+
+		if (!isSelectEmpty && !isTextInputEmpty) {
+			alert("Please choose only one: either select a member or a source.");
+			return false; // Prevent form submission
+		}
+
+		return true; // Allow form submission
+	}
+
+</script>

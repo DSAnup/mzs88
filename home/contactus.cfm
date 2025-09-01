@@ -20,12 +20,12 @@
 						
 			
 						<div class="contact-form">
-							<h1 class="page-title" ondblclick="setTestData();">Contact information:</h1>
-							<p>Send an email with your contact details or query for reunion  <a href="mailto:info@mzs88alumni.com">info@mzs88alumni.com</a> , <a href="mailto:reunion@mzs88alumni.com">reunion@mzs88alumni.com</a>  , or make a call for registration </p>
-							<p><strong>Bipon:</strong> +8801850 516 161</p>
-							<p><strong>Arzu:</strong> +8801711 703 083</p>
-							<p><strong>Musa :</strong> +8801912 479 903</p>
-							<p><strong>Atique:</strong> +8801731 909 574</p>
+<h1 class="page-title" ondblclick="setTestData();">Contact information:</h1>
+<p>Send an email with your contact details or query for reunion  <a href="mailto:info@mzs88alumni.com">info@mzs88alumni.com</a> , <a href="mailto:reunion@mzs88alumni.com">reunion@mzs88alumni.com</a>  , or make a call for registration </p>
+<p><strong>Bipon:</strong> +8801850 516 161</p>
+<p><strong>Arzu:</strong> +8801711 703 083</p>
+<p><strong>Musa :</strong> +8801912 479 903</p>
+<p><strong>Atique:</strong> +8801731 909 574</p>
 
 						</div>
 					</div>

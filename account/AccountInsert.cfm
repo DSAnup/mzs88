@@ -58,11 +58,7 @@
 											<div class="form-group">
 												<label for="AccountDescription" class="col-md-3 control-label">Account Description </label>
 												<div class="col-md-9">
-													<textarea name="Description" class="form-control">
-														<cfif trim(len(qAccountSelect.Description)) gt 0 >
-															#qAccountSelect.Description#
-														</cfif>
-													</textarea>
+													<textarea name="Description" class="form-control">#qAccountSelect.Description#</textarea>
 												</div>
 											</div>
 										</div>

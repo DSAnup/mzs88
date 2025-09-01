@@ -156,6 +156,7 @@ on the right >> sign up form --->
 			
 			
 										    <a id="formOption" class="btn btn-success btn-signup" href="index.cfm?area=home&action=signupNotAvailable">Sign up</a>
+										    <a id="formOption" class="btn btn-success btn-signup" href="index.cfm?area=appuser&action=addNewUser">Sign up2</a>
 									
 										
 									</fieldset>

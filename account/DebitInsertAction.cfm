@@ -33,6 +33,8 @@
 			,[Debit]
 			,[Note]
 			,[TransactionDate]
+			,[SourceUserId]
+			,[SourceFromOthers]
 			,[DateCreated]
 			,[CreatedBy]
 			)
@@ -42,6 +44,8 @@
 			<cfqueryparam cfsqltype="cf_sql_float" value="#form.Debit#">,
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">,
 			<cfqueryparam cfsqltype="cf_sql_timestamp" value="#form.TransactionDate#">,
+			0,
+			'',
 			getDate(),
 			<cfqueryparam cfsqltype="cf_sql_integer" value="#val(session.profile.AppUser.AppUserID)#">
 			)

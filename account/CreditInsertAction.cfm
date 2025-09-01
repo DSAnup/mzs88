@@ -17,6 +17,8 @@
 			,[Credit] = <cfqueryparam cfsqltype="cf_sql_float" value="#form.Credit#">
 			,[Note] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">
 			,[TransactionDate] = <cfqueryparam cfsqltype="cf_sql_timestamp" value="#form.TransactionDate#">
+			,[SourceUserId] = <cfqueryparam cfsqltype="cf_sql_integer" value="#val(form.SourceUserId)#">
+			,[SourceFromOthers] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.SourceFromOthers#">
 			,[DateLastUpdated] = getDate()
 			,[UpdatedBy] = <cfqueryparam cfsqltype="cf_sql_integer" value="#val(session.profile.AppUser.AppUserID)#">
 			
@@ -32,6 +34,8 @@
 			,[Credit]
 			,[Note]
 			,[TransactionDate]
+			,[SourceUserId]
+			,[SourceFromOthers]
 			,[DateCreated]
 			,[CreatedBy]
 			)
@@ -41,6 +45,8 @@
 			<cfqueryparam cfsqltype="cf_sql_float" value="#form.Credit#">,
 			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">,
 			<cfqueryparam cfsqltype="cf_sql_timestamp" value="#form.TransactionDate#">,
+			<cfqueryparam cfsqltype="cf_sql_integer" value="#val(form.SourceUserId)#">,
+			<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.SourceFromOthers#">,
 			getDate(),
 			<cfqueryparam cfsqltype="cf_sql_integer" value="#val(session.profile.AppUser.AppUserID)#">
 			)

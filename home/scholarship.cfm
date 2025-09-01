@@ -110,6 +110,7 @@
 													<option value="">Select your class</option>
 													<option value="ten" <cfif qScholarShipSelect.Class eq 'ten'>selected</cfif>>Ten</option>
 													<option value="nine" <cfif qScholarShipSelect.Class eq 'nine'>selected</cfif>>Nine</option>
+													<option value="eight" <cfif qScholarShipSelect.Class eq 'eight'>selected</cfif>>Eight</option>
 												</select>
 											</div>
 										</div>								

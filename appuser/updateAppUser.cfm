@@ -1,19 +1,12 @@
+<cfparam  name="session.profile.AppUser.AppUserID" default="0">
+<cfparam  name="url.AppUserID" default="0">
 
+<cfquery datasource="#request.dsnameReader#" name="qAppUserSelect"> 
+	SELECT *	   
+		FROM 
+		AppUser where AppUserID = #val(url.AppUserID)#
+</cfquery>
 
-
-
-    
-    <cfparam  name="session.profile.AppUser.AppUserID" default="0">
-    <cfparam  name="url.AppUserID" default="0">
-
-	
-	
-	<cfquery datasource="#request.dsnameReader#" name="qAppUserSelect"> 
-		SELECT *	   
-		 FROM 
-			AppUser where AppUserID = #val(url.AppUserID)#
-	</cfquery>
-	
     
     <cfoutput>
     
@@ -49,25 +42,18 @@
                      <div class="row">
                   		 <div class="col-md-12">           
 
-					<p>Please complete the following details and press <cfif val(qAppUserSelect.AppUserID) eq 0>Signup<cfelse>Update Details</cfif>.</p>
+							<p>Please complete the following details and press Update Details.</p>
 						</div>
 					</div>
 
-					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=home&action=signupAction"  method="post" target="formpost" enctype="multipart/form-data">                      
+					<form id="validate-1" role="form" class="form-horizontal" action="partialIndex.cfm?area=appuser&action=updateAppUserAction"  method="post" target="formpost" enctype="multipart/form-data">                      
 						<div class="space-bottom"></div>    
 						
 							<!---Personal Details --->
 							<fieldset>
-								<legend><span ondblclick="setTestData();">Personal Details </span></legend>
+								<legend><span>Personal Details </span></legend>
 									<div class="row col-md-6">												
 										<div class="col-lg-12">
-											<!--- <div class="form-group">
-												<label for="NameInBangla" class="col-md-5 control-label">Name In Bangla<small class="text-default">*</small></label>
-												<div class="col-md-7">
-													<input type="text" class="form-control required" id="NameInBangla" name="NameInBangla" value="#qAppUserSelect.NameInBangla#">
-					
-												</div>
-											</div>--->
 											<div class="form-group">
 												<label for="NameInEnglish" class="col-md-5 control-label">Full Name<small class="text-default">*</small></label>
 												<div class="col-md-7">
@@ -98,35 +84,21 @@
 									<div class="row col-md-6">
 										
 										<div class="col-lg-12 center-block">
-											<cfif val(qAppUserSelect.AppUserID) gt 0 >
-												<cfif qAppUserSelect.Picture neq '' >
-													<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/#qAppUserSelect.Picture#" alt=""></div>
-												<cfelse>
-													<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/man.jpg" alt=""></div>
-												</cfif>
-												<div class="form-group">
-													<div class="upload-btn-group">
-														<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
-														<input type="hidden" name="currentPicture" id="currentPicture" value="#qAppUserSelect.Picture#">
-														<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
-													<div class="form-group">
-												</div>
+											<cfif qAppUserSelect.Picture neq '' >
+												<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/#qAppUserSelect.Picture#" alt=""></div>
 											<cfelse>
 												<div class="image-area"><img id="imageResult" src="assets/alumni_pictures/man.jpg" alt=""></div>
-												
-												<div class="form-group">
-													<div class="upload-btn-group">
-														<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
-														<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
-													<div class="form-group">
-												</div>
-			
 											</cfif>
+											<div class="form-group">
+												<div class="upload-btn-group">
+													<input class="form-control" id="Picture" name="Picture" type="file" onchange="readURL(this);" >
+													<input type="hidden" name="currentPicture" id="currentPicture" value="#qAppUserSelect.Picture#">
+													<label id="upload-label" for="Picture" class="btn btn-success">Upload Photo</label>
+												<div class="form-group">
+											</div>
 										</div>
 													
 									</div>
-									<!--- <div class="space"></div>									 --->
-								
 							</fieldset>
 							
 
@@ -145,12 +117,6 @@
 								</div>
 								<div class="row col-md-6">
 									<div class="col-lg-12">
-										<!--- <div class="form-group">
-											<label for="NumberOfWife" class="col-md-5 control-label">Number Of Wives</label>
-											<div class="col-md-7">
-												<input type="text" class="form-control" id="NumberOfWife" name="NumberOfWife" value="#qAppUserSelect.NumberOfWife#">
-											</div>
-										</div>	 --->
 									</div>
 								</div>
 								<!--- <div class="space"></div> --->
@@ -173,7 +139,7 @@
 								<div class="row col-md-6">
 									<div class="col-lg-12">			
 										<div class="form-group">
-											<label for="Email" class="col-md-5 control-label">Email</label>
+											<label for="Email" class="col-md-5 control-label">Email<small class="text-default">*</small></label>
 											<div class="col-md-7">
 												<input type="Email" class="form-control" id="Email" name="Email" value="#qAppUserSelect.Email#">
 											</div>
@@ -276,42 +242,8 @@
 					
 
 							<!--- Login Details --->
-							<cfif val(qAppUserSelect.AppUserID) eq 0>
-							
-								<fieldset>
-									<legend><span ondblclick="setTestData();">Login Details</span></legend>
-									
-									<div class="row col-md-6">
-										<div class="col-lg-12">
-											Registration is require to update 
-												your details.  Once you register, all of your friends can find you and you
-												can also see your friends.  
-												<br>
-												When loggin in, you will need to use either your phone number or email Id
-												along with this password.
-										</div>
-									</div>
-									<div class="row col-md-6">
-										<div class="col-lg-12">
-											<div class="form-group">
-												<label for="password" class="col-md-5 control-label">Password<small class="text-default">*</small></label>
-												<div class="col-md-7">
-													<input type="password" class="form-control required" id="password" name="password" minlength="6" value="" required>
-												</div>
-											</div>
-											<div class="form-group">
-												<label for="Cpassword" class="col-md-5 control-label">Confirm Password<small class="text-default">*</small></label>
-												<div class="col-md-7">
-													<input type="password" class="form-control required" id="Cpassword" name="Cpassword" value="" required>
-												</div>
-											</div>		
-										</div>
-									</div>
 					
-									<div class="space"></div>
-								</fieldset>
-					
-							<cfelseif session.profile.AppUser.AppUserID eq url.AppUserID>
+							<cfif session.profile.AppUser.AppUserID eq url.AppUserID>
 
 								<fieldset>
 									<legend><span ondblclick="setTestData();">Login Details</span></legend>
@@ -330,18 +262,18 @@
 								<div class="text-left col-md-6">
 									
 								<cfif val(qAppUserSelect.AppUserID) neq 0>
-									<a href="index.cfm?area=home&action=AlumniSelect" class="btn btn-success btnreset signupbackup"><i class="icon-left-open-big"></i>Alumni List</a>							
+									<a href="index.cfm?area=home&action=MemberSelect" class="btn btn-success btnreset signupbackup"><i class="icon-left-open-big"></i>Member List</a>							
 								<cfelse>
 									<a href="index.cfm?area=home&action=loginorSignin" class="btn btn-success btnreset signupbackup"><i class="icon-left-open-big"></i> Back To Login</a>
 								</cfif>
 									
 								</div>
 								
-								<input type="hidden" name="AppUserID" id="AppUserID" value="#val(session.profile.AppUser.AppUserID)#">
+								<input type="hidden" name="AppUserID" id="AppUserID" value="#val(url.AppUserID)#">
 
 								<div class="text-right col-md-6">
-									<button type="submit" class="btn btn-group btn-default btn-sm btn-disabled updateButton">							
-										<cfif val(qAppUserSelect.AppUserID) eq 0>Signup<cfelse>Update Details</cfif>															
+									<button type="submit" class="btn btn-group btn-default btn-sm btn-disabled updateButton">
+										Update Details														
 										<i class="icon-right-open-big"></i>							
 									</button>
 								</div>
