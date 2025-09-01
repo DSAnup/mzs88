@@ -25,7 +25,7 @@
 		
 		<!--- send to login page --->
 		<cfif session.profile.isLoggedIn eq false AND url.area neq "home" >			
-			<cflocation url="/?area=home&action=login" addtoken="false" >			
+			<cflocation url="/?area=home&action=home" addtoken="false" >			
 		</cfif>
 		
 	
